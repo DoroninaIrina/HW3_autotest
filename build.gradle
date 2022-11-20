@@ -1,0 +1,28 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile){
+    options.encoding = 'UTF-8'
+}
+
+//dependencies{
+//    testImplementation ()
+//}
+
+help [
+        doFirst {
+            println ""
+            println "***********************************************************************"
+            println "***                                                                 ***"
+            println "*** Welcome to https://github.com/DoroninaIrina/HW3_autotest!       ***"
+            println "***                                                                 ***"
+            println "*** ./gradle help                                                   ***"
+            println "***********************************************************************"
+            println ""
+        }
+]
