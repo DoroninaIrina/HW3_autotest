@@ -22,13 +22,13 @@ public class TextBoxTests {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('#footer').remove()");
+        executeJavaScript("$('footer').remove()");
 
         $("#firstName").setValue("Irina");
         $("#lastName").setValue("Doronina");
         $("#userEmail").setValue("idoronina@mail.com");
 
-        $("#gender-radio-2").parent().click();
+        $("#genterWrapper").$(byText("Female")).click(); //исправлено
 
         $("#userNumber").setValue("9998887766");
 
@@ -53,6 +53,18 @@ public class TextBoxTests {
         $("#stateCity-wrapper").$(byText("Noida")).click();
 
         $("#submit").click();
+
+        $(".modal-open").shouldHave(text("Thanks for submitting the form"));
+        $(".modal-open").shouldHave(text("Irina Doronina"));
+        $(".modal-open").shouldHave(text("idoronina@mail.com"));
+        $(".modal-open").shouldHave(text("Female"));
+        $(".modal-open").shouldHave(text("9998887766"));
+        $(".modal-open").shouldHave(text("23 February,1997"));
+        $(".modal-open").shouldHave(text("Arts"));
+        $(".modal-open").shouldHave(text("Reading"));
+        $(".modal-open").shouldHave(text("pic.png"));
+        $(".modal-open").shouldHave(text("Russia"));
+        $(".modal-open").shouldHave(text("NCR Noida"));
 
     }
 }
